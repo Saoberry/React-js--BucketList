@@ -15,7 +15,9 @@ const stateInit = {
     title: '',
     content: '',
     city: '',
-    coord: []
+    coord: [],
+    lat: '',
+    lng: ''
 }
 
 const reducer = (state = stateInit, action = {}) => {
@@ -62,15 +64,19 @@ const reducer = (state = stateInit, action = {}) => {
         }
 
         case SET_NEW_PLACE:
-            const test = action.payload;
-            console.log(test)
+            let {name, value} = action.payload;
         return {
             ...state,
+            [name] : value
         }
 
         case ADD_NEW_PLACE:
-            const yep = action.payload;
-            console.log(yep)
+            let infosForm = []
+            let destinations = state.destinations
+            infosForm = infosForm.concat(action.payload)
+            // destinations = destinations[0].places.concat(infosForm)
+            console.log(destinations[0].places)
+            console.log(infosForm)
         return {
             ...state,
         }

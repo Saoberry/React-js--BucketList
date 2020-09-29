@@ -35,3 +35,10 @@ export const add_new_place = payload => {
         type: ADD_NEW_PLACE, payload
     };
 }
+
+
+//fonctions utiles
+
+export const idGenerator = () => {
+    return (Math.random().toString(36).substr(2, 9))
+};

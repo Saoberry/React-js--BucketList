@@ -1,0 +1,17 @@
+.addPlacesForm{
+    margin: 10px;
+    .form-group{
+        margin-bottom: 20px;
+        label{
+            display: block;
+        }
+        input{
+            width: 80%;
+        }
+        textarea{
+            width: 80%;
+            height: 50px;
+        }
+    }
+    
+}
