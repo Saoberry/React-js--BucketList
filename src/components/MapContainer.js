@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import {key_api} from '../api_key'
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import { useSelector, useDispatch } from 'react-redux';
 import { markers_list } from '../actions/actions-types'
@@ -31,5 +32,5 @@ const MapContainer = (props) => {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyDzL38_4e7Agwju5QMzto6SPHRxkSzHgYA'
+  apiKey: key_api
 })(MapContainer);
