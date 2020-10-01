@@ -22,11 +22,12 @@ const stateInit = {
 
 const reducer = (state = stateInit, action = {}) => {
     let Destinations;
+    let markersList = [];
+
     switch (action.type) {
 
         case MARKERS_LIST:
             Destinations = state.destinations;   
-            let markersList = [];
             for(let i=0; i < Destinations.length; i++){
                 for(let j=0; j < Destinations[i].places.length; j++){
                     markersList = markersList.concat(Destinations[i].places[j])
@@ -72,13 +73,24 @@ const reducer = (state = stateInit, action = {}) => {
 
         case ADD_NEW_PLACE:
             let infosForm = []
-            let destinations = state.destinations
+            Destinations = state.destinations
+
             infosForm = infosForm.concat(action.payload)
-            // destinations = destinations[0].places.concat(infosForm)
-            console.log(destinations[0].places)
-            console.log(infosForm)
+            Destinations[0].places = Destinations[0].places.concat(infosForm)
+            for(let i=0; i < Destinations.length; i++){
+                for(let j=0; j < Destinations[i].places.length; j++){
+                    markersList = markersList.concat(Destinations[i].places[j])
+                }
+            }
         return {
             ...state,
+            destinations: Destinations,
+            title: '',
+            content: '',
+            city: '',
+            lat: '',
+            lng: '',
+            markers: markersList
         }
 
         default:
